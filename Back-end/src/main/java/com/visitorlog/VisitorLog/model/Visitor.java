@@ -2,10 +2,8 @@ package com.visitorlog.VisitorLog.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 @Entity
 public class Visitor implements Serializable {
@@ -20,15 +18,10 @@ public class Visitor implements Serializable {
     private String phone;
     private String address;
 
-
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private LocalDateTime timeAndDate;
 
     private String imageUrl;
-
-
 
     @Column(nullable = false, updatable = false)
     private String uniqueCode;
@@ -36,11 +29,20 @@ public class Visitor implements Serializable {
     public Visitor() { }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Visitor(String firstName,
                    String lastName,
                    String email,
                    String phone,
                    String address,
+                   LocalDateTime timeAndDate,
                    String imageUrl,
                    String uniqueCode) {
         this.firstName = firstName;
@@ -48,6 +50,7 @@ public class Visitor implements Serializable {
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.timeAndDate = timeAndDate;
         this.imageUrl = imageUrl;
         this.uniqueCode = uniqueCode;
     }
@@ -99,9 +102,7 @@ public class Visitor implements Serializable {
 
     public LocalDateTime getTimeAndDate() { return timeAndDate; }
 
-    public void setTimeAndDate(LocalDateTime timeAndDate) {
-        this.timeAndDate = timeAndDate;
-    }
+    public void setTimeAndDate(LocalDateTime timeAndDate) { this.timeAndDate=timeAndDate;}
 
     public String getImageUrl() {
         return imageUrl;

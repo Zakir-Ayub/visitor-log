@@ -1,4 +1,4 @@
-package com.visitorlog.VisitorLog;
+package com.visitorlog.VisitorLog.resources;
 
 import com.visitorlog.VisitorLog.model.Visitor;
 import com.visitorlog.VisitorLog.service.VisitorService;
@@ -6,8 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @RestController
 @RequestMapping("/visitor")
 public class VisitorResource
