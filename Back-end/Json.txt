@@ -1,0 +1,8 @@
+{
+    "firstName": "Daniel",
+	"lastName": "Craig",
+	"email": "daniel.craig@gmail.com",
+	"phone": "007-007",
+	"address": "Glasgow,Scotland",
+	"imageUrl": "http://www.gstatic.com/tv/thumb/persons/77711/77711_v9_bb.jpg"
+}
