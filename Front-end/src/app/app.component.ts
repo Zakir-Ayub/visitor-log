@@ -13,6 +13,8 @@ import { VisitorService } from './visitor.service';
 export class AppComponent implements OnInit{
   public visitors: Visitor[];
   public editVisitor: Visitor;
+  public deleteVisitor: Visitor;
+  
   constructor(private visitorService: VisitorService){}
 
   ngOnInit()
@@ -42,9 +44,11 @@ export class AppComponent implements OnInit{
       {
         console.log(response);
         this.getVisitors();
+        addForm.reset();
       },
       (error: HttpErrorResponse)=>{
         alert(error.message);
+        addForm.reset();
       }
     );
   }
@@ -64,6 +68,23 @@ export class AppComponent implements OnInit{
       }
     );
   }
+
+
+  public onDeleteVisitor(visitorId: number): void 
+  {
+    
+    this.visitorService.deleteVisitor(visitorId).subscribe(
+      (response: void)=>
+      {
+        console.log(response);
+        this.getVisitors();
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    );
+  }
+
 
 
   public onOpenModal(visitor:Visitor, mode:string): void
@@ -86,6 +107,7 @@ export class AppComponent implements OnInit{
 
     if(mode === 'delete')
     {
+      this.deleteVisitor = visitor;
       button.setAttribute('data-target', '#deleteVisitorModal');
     }
 

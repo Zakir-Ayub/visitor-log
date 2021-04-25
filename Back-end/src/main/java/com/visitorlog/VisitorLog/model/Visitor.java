@@ -3,6 +3,7 @@ package com.visitorlog.VisitorLog.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Entity
@@ -100,7 +101,11 @@ public class Visitor implements Serializable {
         this.address = address;
     }
 
-    public LocalDateTime getTimeAndDate() { return timeAndDate; }
+    public String getTimeAndDate()
+    {
+        DateTimeFormatter dateTimeFormatter= DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
+        return timeAndDate.format(dateTimeFormatter);
+    }
 
     public void setTimeAndDate(LocalDateTime timeAndDate) { this.timeAndDate=timeAndDate;}
 
