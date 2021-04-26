@@ -1,2 +1,2 @@
 # visitor-log
-A basic web app to track visitors during pandemic
+A basic web app to track visitors during pandemic using spring boot and angular js.
