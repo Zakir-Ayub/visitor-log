@@ -35,6 +35,27 @@ export class AppComponent implements OnInit{
     );
   }
 
+  public searchVisitors(key: string): void
+  {
+    const results: Visitor [] = [];
+    for (const visitor of this.visitors)
+    {
+      if (visitor.firstName.toLowerCase().indexOf(key.toLowerCase())!== -1
+      || visitor.lastName.toLowerCase().indexOf(key.toLowerCase())!== -1
+      || visitor.email.toLowerCase().indexOf(key.toLowerCase())!== -1
+      || visitor.phone.toLowerCase().indexOf(key.toLowerCase())!== -1)
+      {
+        results.push(visitor);
+      }
+    }
+    this.visitors = results;
+
+    if(results.length === 0 || !key)
+    {
+      this.getVisitors();
+    } 
+  }
+
 
   public onAddVisitor(addForm: NgForm): void 
   {
