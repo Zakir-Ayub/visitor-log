@@ -1,2 +1,2 @@
-# visitor-log
-Tracking web app for people visiting places during pandemic
+# back-end
+The back-end was developed useing spring boot.
