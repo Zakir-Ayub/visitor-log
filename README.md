@@ -1,2 +1,5 @@
 # visitor-log
 A basic web app to track visitors during pandemic using spring boot and angular js.
+
+Just a basic web app to track people visiting places that needs tracking because of corona outbreak.
+This was a project developed for learning purposes.
