@@ -10,7 +10,8 @@
           </li>
        </ul>
        <form class="form-inline my-2 my-lg-0">
-          <input type="search" lastname="key" id="searchName" class="form-control mr-sm-2" placeholder="Search visitors......." required>
+          <input type="search"(ngModelChange)="searchVisitors(key.value)" #key="ngModel" ngModel
+          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search visitors......." required>
        </form>
     </div>
   </nav>
